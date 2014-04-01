@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Redo</title>    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <script>        
+
+        if (navigator.msPointerEnabled && navigator.msMaxTouchPoints) {
+            var fileref = document.createElement('script')
+            fileref.setAttribute("type", "text/javascript")
+            fileref.setAttribute("src", "js/msTouch.js")
+        }
+        else {
+            var fileref = document.createElement('script')
+            fileref.setAttribute("type", "text/javascript")
+            fileref.setAttribute("src", "js/chromeTouch.js")
+        };
+
+        if (typeof fileref != "undefined")
+            document.getElementsByTagName("head")[0].appendChild(fileref)
+
+    </script>
+    <style type="text/css">
+    body { margin: 0px; overflow: hidden; }
+        canvas {
+            border: 1px solid black;
+            -ms-touch-action: none;
+            touch-action: none;
+        }
+</style>
+</head>
+<body onload="ol()">
+    
+<canvas id="canvas" width="300" height="300" style="top:0px; left:0px; width: 300px; height: 300px;"></canvas>
+
+</body>
+</html>

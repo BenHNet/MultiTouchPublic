@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+
+    <style>
+        canvas {
+            -ms-touch-action: none;
+            touch-action: none;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="drawSurface" width="500" height="500" style="border: 1px solid black;"></canvas>
+
+    <script>
+        var canvas = document.getElementById("drawSurface");
+        var context = canvas.getContext("2d");
+        context.fillStyle = "rgba(255, 0, 0, 0.5)";
+        canvas.addEventListener("MSPointerMove", paint, false);
+
+        function paint(event) {
+            if (event.button > 0 || event.pointerType == 'touch' || event.pointerType == event.MSPOINTER_TYPE_TOUCH)
+                context.fillRect(event.offsetX, event.offsetY, 5, 5);
+        }
+    </script>
+</body>

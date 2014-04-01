@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Touch Jquery</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <style type="text/css">
+        body {
+            margin: 0px;
+            overflow: hidden;
+        }
+
+        canvas {
+            border: 1px solid black;
+            -ms-touch-action: none;
+            touch-action: none;
+        }
+    </style>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+    <script type="text/javascript">
+
+        var canvas;
+        var ctx;
+        var w = 0;
+        var h = 0;
+        h['one'] = 1;
+        h['two'] = 2;
+        h['three'] = 3;
+
+        function ol() {
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            timer = setInterval(update, 30);
+            $("#canvas").bind("tap", canvasTapped );
+        };
+
+        function update() {
+
+            var nw = window.innerWidth;
+            var nh = window.innerHeight;
+
+
+            if ((w != nw) || (h != nh)) {
+                w = nw;
+                h = nh;
+                canvas.style.width = w + 'px';
+                canvas.style.height = h + 'px';
+                canvas.width = w;
+                canvas.height = h;
+            }
+        };
+
+        function canvasTapped(e) {
+
+            makeCircle(e.clientX, e.clientY);
+        };
+
+        function makeCircle(x, y) {
+
+            ctx.beginPath();
+            ctx.arc(x, y, 50, 0, 2 * Math.PI, true);
+
+            ctx.fillStyle = "rgba(0, 0, 200, 0.2)";
+            ctx.fill();
+
+            ctx.lineWidth = 2.0;
+            ctx.strokeStyle = "rgba(0, 0, 200, 0.8)";
+            ctx.stroke();
+            console.log('drawn circle at ' + x + ',' + y);
+        };
+
+    </script>
+</head>
+<body onload="ol()">
+
+    <canvas id="canvas" width="300" height="300" style="top:0px; left:0px; width: 300px; height: 300px;"></canvas>
+
+</body>
+</html>

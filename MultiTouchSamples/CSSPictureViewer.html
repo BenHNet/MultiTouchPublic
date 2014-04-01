@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .container {
+            width: 500px;
+            height: 340px;
+            margin: auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+
+        .photoGallery {
+            width: 500px;
+            height: 340px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            border-style: solid;
+            border-radius: 5px;
+            -ms-scroll-snap-points-x: snapInterval(0px,500px);
+            -ms-scroll-snap-type: mandatory;
+            -ms-overflow-style: none;
+            -ms-scroll-chaining: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Photos</h1>
+        <div class="photoGallery">
+            <img src="Images/vader.jpg"><img src="Images/vader1.jpg"><img src="Images/vaderarmscrossed.jpg"><img src="Images/vaderscetch.jpg">
+        </div>
+    </div>
+</body>
+</html>
